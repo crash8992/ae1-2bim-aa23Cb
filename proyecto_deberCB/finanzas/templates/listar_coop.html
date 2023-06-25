@@ -1,0 +1,32 @@
+{% extends "principal.html" %}
+{% block contentido %}
+
+  <h3>Cooperativas de ahorro</h3>
+  <p><b>Número de Cooperativas: ({{listar_coop}})</b> </p>
+  <table id="tabla_datos">
+    <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Siglas</th>
+      <th>Numero de agencias</th>
+      <th>Ciudad agencia</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for cooperativa in la_cooperativas %}
+      <tr>
+        <td>{{cooperativa.nombre}}</td>
+        <td>{{cooperativa.siglas}}</td>
+        <td>{{cooperativa.num_sucursales}}</td>
+        <td>{{cooperativa.ciudad_entidad}}</td>
+      </tr>
+      {% endfor %}
+
+    </table>
+  </tbody>
+    <script type="text/javascript">
+      $(document).ready( function () {
+          $('#tabla_datos').DataTable();
+        });
+    </script>
+{% endblock %}
